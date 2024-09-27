@@ -41,7 +41,7 @@ Eigen::Matrix3d rotation_matrix_from_frame_axes(const Eigen::Vector3d &x, const 
 //2.b)Create a rotation matrix from rotating θ degrees about the principal axis x
 Eigen::Matrix3d rotate_x(double degrees)
 {
-    double radians = deg_to_rad(degrees);
+    double radians = math::deg_to_rad(degrees);
     Eigen::Matrix3d matrix;
     matrix << 1, 0, 0,
     0, std::cos(radians), -std::sin(radians),
@@ -52,7 +52,7 @@ Eigen::Matrix3d rotate_x(double degrees)
 //2.c)Create a rotation matrix from rotating θ degrees about the principal axis y
 Eigen::Matrix3d rotate_y(double degrees)
 {
-    double radians = deg_to_rad(degrees);
+    double radians = math::deg_to_rad(degrees);
     Eigen::Matrix3d matrix;
     matrix << std::cos(radians), 0, std::sin(radians),
     0, 1, 0,
@@ -63,7 +63,7 @@ Eigen::Matrix3d rotate_y(double degrees)
 //2.d) Create a rotation matrix from rotating θ degrees about the principal axis z
 Eigen::Matrix3d rotate_z(double degrees)
 {
-    double radians = deg_to_rad(degrees);
+    double radians = math::deg_to_rad(degrees);
     Eigen::Matrix3d matrix;
     matrix << std::cos(radians), -std::sin(radians), 0,
     std::sin(radians), std::cos(radians), 0,
@@ -74,7 +74,7 @@ Eigen::Matrix3d rotate_z(double degrees)
 //2.e)Create a rotation matrix from rotating θ degrees about an arbitrary axis ω
 Eigen::Matrix3d rotation_matrix_from_axis_angle(const Eigen::Vector3d &axis, double degrees)
 {
-    double radians = deg_to_rad(degrees);
+    double radians = math::deg_to_rad(degrees);
     Eigen::Matrix3d matrix;
     double c = std::cos(radians);
     double s = std::sin(radians);
@@ -142,7 +142,7 @@ void transformation_matrix_test()
 //3.c)Transform vector from body-frame to fixed-frame coordinates
 void transform_vector()
 {
-    Eigen::Vector3d e_rad{deg_to_rad(60.0), deg_to_rad(45.0), deg_to_rad(0.0)};
+    Eigen::Vector3d e_rad{math::deg_to_rad(60.0), math::deg_to_rad(45.0), math::deg_to_rad(0.0)};
     Eigen::Vector3d p_wa{0.0, 0.0, 1.0};
     Eigen::Vector3d v_a{2.5, 3.0, -10};
 
